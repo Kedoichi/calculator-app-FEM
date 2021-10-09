@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1eaecac850.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="setupSection">
+        <div class="bill">
+          Bill
+          <div class="inputForm">
+            <i class="fas fa-dollar-sign"></i>
+            <input onchange="getInput()" id="bill" type="number"  min="0" placeholder="0" />
+          </div>
+        </div>
+        <div class="tip">
+          Select Tip
+          <div class="selection">
+            <div>5%</div>
+            <div>10%</div>
+            <div>15%</div>
+            <div>25%</div>
+            <div>50%</div>
+            <input onchange="customTip()" id="customTip" type="number" min="0" placeholder="Custom"></input>
+          </div>
+        </div>
+        <div class="numPeople">
+          Number of People
+          <div class="inputForm">
+            <i class="fas fa-user"></i>
+            <input onchange="getInput()" id="numPeople" type="number" value="1"  min="1" />
+          </div>
+        </div>
+      </div>
+      <div class="display">
+        <div class="amount">
+          <div class="des">
+            <section class="white">Tip Amount</section>
+            <section>/ person</section>
+          </div>
+          <div class="money tipAmount">$0.00</div>
+        </div>
+        <div class="total">
+          <div class="des">
+            <section class="white">Total</section>
+            <section>/ person</section>
+          </div>
+          <div class="money TotalPerPerson">$0.00</div>
+        </div>
+        <div class="BTNReset">Reset</div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">quocchic</a>.
+    </div>
+  </body>
 </html>
