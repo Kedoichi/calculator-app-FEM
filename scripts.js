@@ -15,21 +15,34 @@ $(document).ready(function () {
     calc();
   });
 
-  //Custom Tip
+  //Reset function
+  $(".BTNReset").click(function () {
+    bill = 0;
+    tip = 0;
+    numPeople = 1;
+    $("#customTip").val("");
+    $(".selection div").removeClass("BTNClicked");
+    $(".BTNReset").removeClass("BTNClicked");
+    $(".TotalPerPerson").text("$0.00");
+    $(".tipAmount").text("$0.00");
+    $("#numPeople").val("");
+    $("#bill").val("");
+  });
 
+  //Custom Tip
   $("#customTip").keyup(function () {
     $(".selection div").removeClass("BTNClicked");
     $(".BTNReset").addClass("BTNClicked");
     tip = document.getElementById("customTip").value;
-    calc()
+    calc();
   });
 
+  // Get Input
   $("#bill").keyup(function () {
     $(".BTNReset").addClass("BTNClicked");
     bill = $(this).val();
     calc();
   });
-
   $("#numPeople").keyup(function () {
     $(".BTNReset").addClass("BTNClicked");
     numPeople = document.getElementById("numPeople").value;
@@ -45,17 +58,4 @@ function calc() {
   TotalPerPerson = bill;
   $(".TotalPerPerson").text("$" + (Total / numPeople).toFixed(2));
   $(".tipAmount").text("$" + (TipAmount / numPeople).toFixed(2));
-}
-
-function setup() {
-  bill = 0;
-  tip = 0;
-  numPeople = 1;
-  $("#customTip").val("");
-  $(".selection div").removeClass("BTNClicked");
-  $(".BTNReset").removeClass("BTNClicked");
-  $(".TotalPerPerson").text("$0.00");
-  $(".tipAmount").text("$0.00");
-  $("#numPeople").val("1");
-  $("#bill").val("");
 }
