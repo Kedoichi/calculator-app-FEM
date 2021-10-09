@@ -25,7 +25,7 @@ $(document).ready(function () {
     $(".BTNReset").removeClass("BTNClicked");
     $(".TotalPerPerson").text("$0.00");
     $(".tipAmount").text("$0.00");
-    $("#numPeople").val("");
+    $("#numPeople").val("1");
     $("#bill").val("");
   });
 

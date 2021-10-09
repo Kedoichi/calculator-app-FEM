@@ -115,6 +115,7 @@ input::-webkit-inner-spin-button {
   font-size: 30px;
   font-weight: bolder;
   letter-spacing: 3px;
+  word-wrap:break-word ;
 }
 .display section {
   color: var(--dark-grayish-cyan);
