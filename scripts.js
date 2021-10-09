@@ -1,30 +1,41 @@
+var bill = 0;
+var tip = 0;
+var numPeople = 1;
+
 //Tips Buttons LiveCheck
 $(document).ready(function () {
   $(".selection div").click(function () {
     $(".selection div").removeClass("BTNClicked");
     $(this).addClass("BTNClicked");
-    document.getElementById("customTip").value = "";
+    $("#customTip").val("");
     $(".BTNReset").addClass("BTNClicked");
 
     // get Tip value
-    tip = parseInt(document.getElementsByClassName("BTNClicked")[0].innerText);
-    getInput();
+    tip = parseInt($(this).text());
+    calc();
+  });
+
+  //Custom Tip
+
+  $("#customTip").keyup(function () {
+    $(".selection div").removeClass("BTNClicked");
+    $(".BTNReset").addClass("BTNClicked");
+    tip = document.getElementById("customTip").value;
+    calc()
+  });
+
+  $("#bill").keyup(function () {
+    $(".BTNReset").addClass("BTNClicked");
+    bill = $(this).val();
+    calc();
+  });
+
+  $("#numPeople").keyup(function () {
+    $(".BTNReset").addClass("BTNClicked");
+    numPeople = document.getElementById("numPeople").value;
+    calc();
   });
 });
-
-//Custom Tip
-function customTip() {
-  $(".selection div").removeClass("BTNClicked");
-  $(".BTNReset").addClass("BTNClicked");
-  tip = document.getElementById("customTip").value;
-  getInput();
-}
-
-function getInput() {
-  bill = document.getElementById("bill").value;
-  numPeople = document.getElementById("numPeople").value;
-  calc();
-}
 
 function calc() {
   if (bill == 0) return;
@@ -32,22 +43,19 @@ function calc() {
   TipAmount = (bill * tip) / 100;
   Total = parseFloat(bill) + TipAmount;
   TotalPerPerson = bill;
-  document.getElementsByClassName("TotalPerPerson")[0].innerText =
-    "$" + (Total / numPeople).toFixed(2);
-  document.getElementsByClassName("tipAmount")[0].innerText =
-    "$" + (TipAmount / numPeople).toFixed(2);
+  $(".TotalPerPerson").text("$" + (Total / numPeople).toFixed(2));
+  $(".tipAmount").text("$" + (TipAmount / numPeople).toFixed(2));
 }
 
 function setup() {
-  var bill = 0;
-  var tip = 0;
-  var numPeople = 1;
-  document.getElementById("customTip").value = "";
+  bill = 0;
+  tip = 0;
+  numPeople = 1;
+  $("#customTip").val("");
   $(".selection div").removeClass("BTNClicked");
   $(".BTNReset").removeClass("BTNClicked");
-  document.getElementsByClassName("TotalPerPerson")[0].innerText = "$0.00";
-  document.getElementsByClassName("tipAmount")[0].innerText = "$0.00";
-  document.getElementById("numPeople").value=1;
-  document.getElementById("bill").value="";
+  $(".TotalPerPerson").text("$0.00");
+  $(".tipAmount").text("$0.00");
+  $("#numPeople").val("1");
+  $("#bill").val("");
 }
-setup()

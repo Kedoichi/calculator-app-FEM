@@ -34,7 +34,7 @@
           Bill
           <div class="inputForm">
             <i class="fas fa-dollar-sign"></i>
-            <input onchange="getInput()" id="bill" type="number"  min="0" placeholder="0" />
+            <input id="bill" type="number"  min="0" placeholder="0" />
           </div>
         </div>
         <div class="tip">
@@ -45,14 +45,14 @@
             <div>15%</div>
             <div>25%</div>
             <div>50%</div>
-            <input onchange="customTip()" id="customTip" type="number" min="0" placeholder="Custom"></input>
+            <input id="customTip" type="number" min="0" max="200" placeholder="Custom"></input>
           </div>
         </div>
         <div class="numPeople">
           Number of People
           <div class="inputForm">
             <i class="fas fa-user"></i>
-            <input onchange="getInput()" id="numPeople" type="number" value="1"  min="1" />
+            <input id="numPeople" type="number" value="1"  min="1" />
           </div>
         </div>
       </div>
